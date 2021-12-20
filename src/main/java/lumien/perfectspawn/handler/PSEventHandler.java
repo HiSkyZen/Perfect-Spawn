@@ -106,8 +106,8 @@ public class PSEventHandler
 
 		if (enumfacing != null)
 		{
-			new getFOXonEF() = enumfacing.getFrontOffsetX()
-			new getFOZonEF() = enumfacing.getFrontOffsetZ()
+			new getFOXonEF() = enumfacing.getFrontOffsetX();
+			new getFOZonEF() = enumfacing.getFrontOffsetZ();
 			float f1 = 0.5F + (float) getFOXonEF() * 0.4F;
 			float f = 0.5F + (float) getFOZonEF() * 0.4F;
 
