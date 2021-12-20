@@ -71,7 +71,7 @@ repositories {
 //    lumien.perfectspawn.java.srcDirs = ['src/main/java']
 //}
 
-minecraft.version = "1.12.2"
+//minecraft.version = "1.12.2"
 
 //sourceCompatibility = '1.8'
 //targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
