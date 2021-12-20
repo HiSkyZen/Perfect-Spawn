@@ -67,9 +67,9 @@ repositories {
     }
 }
 
-sourceSets { 
-    lumien.perfectspawn.java.srcDirs = ['src/main/java']
-}
+//sourceSets { 
+//    lumien.perfectspawn.java.srcDirs = ['src/main/java']
+//}
 
 minecraft.version = "1.12.2"
 
