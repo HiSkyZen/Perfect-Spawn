@@ -21,7 +21,6 @@ import org.objectweb.asm.tree.VarInsnNode;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 
 import static org.objectweb.asm.Opcodes.*;
 
@@ -51,7 +50,7 @@ public class ClassTransformer implements IClassTransformer
 			// Patches the dimension the server initially spawns a new player in
 			return patchPlayerList(basicClass);
 		}
-		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayerMP"))
+		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayer"))
 		{
 			return patchEntityPlayer(basicClass);
 		}
@@ -348,7 +347,7 @@ public class ClassTransformer implements IClassTransformer
 					InsnList toInsert = new InsnList();
 					toInsert.add(new VarInsnNode(ALOAD, 0));
 					toInsert.add(new InsnNode(SWAP));
-					toInsert.add(new MethodInsnNode(INVOKESTATIC, asmHandler, "overrideDefaultPlayerSpawnDimension", "(Lnet/minecraft/entity/player/EntityPlayerMP;I)I", false));
+					toInsert.add(new MethodInsnNode(INVOKESTATIC, asmHandler, "overrideDefaultPlayerSpawnDimension", "(Lnet/minecraft/entity/player/EntityPlayer;I)I", false));
 
 					getSpawnDimension.instructions.insert(ain, toInsert);
 					break;
@@ -376,7 +375,7 @@ public class ClassTransformer implements IClassTransformer
 
 						toInsert.add(new VarInsnNode(ALOAD, 0));
 						toInsert.add(new InsnNode(SWAP));
-						toInsert.add(new MethodInsnNode(INVOKESTATIC, asmHandler, "keepInBedFix", "(Lnet/minecraft/entity/player/EntityPlayerMP;Z)Z", false));
+						toInsert.add(new MethodInsnNode(INVOKESTATIC, asmHandler, "keepInBedFix", "(Lnet/minecraft/entity/player/EntityPlayer;Z)Z", false));
 
 						onUpdate.instructions.insert(min, toInsert);
 
