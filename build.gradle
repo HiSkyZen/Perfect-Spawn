@@ -32,7 +32,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: 'net.minecraftforge.gradle.patcher'
+//apply plugin: 'net.minecraftforge.gradle.patcher'
 
 version = "2.2"
 group = "lumien.perfectspawn" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
