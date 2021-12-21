@@ -17,6 +17,7 @@ import org.objectweb.asm.tree.LabelNode;
 import org.objectweb.asm.tree.MethodInsnNode;
 import org.objectweb.asm.tree.MethodNode;
 import org.objectweb.asm.tree.VarInsnNode;
+import net.minecraft.entity.player.EntityPlayer
 
 import static org.objectweb.asm.Opcodes.*;
 
@@ -46,7 +47,7 @@ public class ClassTransformer implements IClassTransformer
 			// Patches the dimension the server initially spawns a new player in
 			return patchPlayerList(basicClass);
 		}
-		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayerMP"))
+		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayer"))
 		{
 			return patchEntityPlayer(basicClass);
 		}
