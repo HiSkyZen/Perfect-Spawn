@@ -102,14 +102,10 @@ public class PSEventHandler
 		ReflectionHandler.spawnShoulderEntities(player);
 		ReflectionHandler.setSize(player, 0.2F, 0.2F);
 
-
-
-		if (enumfacing != null)
+		if (EnumFacing != null)
 		{
-			new getFOXonEF() = enumfacing.getFrontOffsetX();
-			new getFOZonEF() = enumfacing.getFrontOffsetZ();
-			float f1 = 0.5F + (float) getFOXonEF() * 0.4F;
-			float f = 0.5F + (float) getFOZonEF() * 0.4F;
+			float f1 = 0.5F + (float) EnumFacing.getFrontOffsetX() * 0.4F;
+			float f = 0.5F + (float) EnumFacing.getFrontOffsetZ() * 0.4F;
 
 			ReflectionHandler.setRenderOffsetForSleep(player, enumfacing);
 			player.setPosition((double) ((float) event.getPos().getX() + f1), (double) ((float) event.getPos().getY() + 0.6875F), (double) ((float) event.getPos().getZ() + f));
