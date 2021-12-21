@@ -46,7 +46,7 @@ public class ClassTransformer implements IClassTransformer
 			// Patches the dimension the server initially spawns a new player in
 			return patchPlayerList(basicClass);
 		}
-		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayer"))
+		else if (transformedName.equals("net.minecraft.entity.player.EntityPlayerMP"))
 		{
 			return patchEntityPlayer(basicClass);
 		}
