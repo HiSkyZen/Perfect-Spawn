@@ -19,6 +19,10 @@ buildscript {
             name = 'spigotmc-public'
             url = 'https://hub.spigotmc.org/nexus/content/groups/public/'
         }
+        maven {
+            name = 'mchan.us'
+            url = 'https://maven.mchan.us/'
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -28,6 +32,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'net.minecraftforge.gradle.patcher'
 
 version = "2.2"
 group = "lumien.perfectspawn" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -39,9 +44,14 @@ targetCompatibility = JavaVersion.VERSION_1_8
 minecraft {
 	version = mcversion + "-" + forgeversion
 	runDir = "run"
+    versionJson = "jsons/1.12.2-dev.json"
 	replace '@VERSION@', project.version
     replaceIn "lib/Reference.java"
 	mappings = mcp_mappings
+}
+
+soruceSets {
+    main.java.srcDir 'src/main/java'
 }
 
 repositories {
@@ -64,6 +74,10 @@ repositories {
     maven {
         name = 'spigotmc-public'
         url = 'https://hub.spigotmc.org/nexus/content/groups/public/'
+    }
+    maven {
+        name = 'mchan.us'
+        url = 'https://maven.mchan.us/'
     }
 }
 
@@ -90,6 +104,16 @@ jar {
 archivesBaseName = "PerfectSpawn-MC" + minecraft.version
 
 dependencies {
+    compile 'net.minecraft:launchwrapper:1.12'
+    compile 'org.bukkit.bukkit:1.12.2-R0.1-SNAPSHOT'
+    compile 'org.spigotmc.spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compile 'net.md-5:SpecialSource:1.8.0'
+    compile 'net.md-5:bungeecord-chat:1.12-SNAPSHOT'
+    compile 'com.mojang:text2speech:1.10.3'
+    compile 'com.mojang:authlib:1.5.25'
+    compile 'com.mojang:realms:1.10.21'
+    compile 'com.mojang:patchy:1.1'
+
 }
 
 processResources {
